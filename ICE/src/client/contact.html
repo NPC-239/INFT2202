@@ -29,26 +29,37 @@
       </div>
 
 
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/everything_is_object.png" class="d-block w-100" alt="Everything is Object!">
+      <div class="container">
+        <h1>Contact Us</h1>
+
+        <p>In your assignment, you'll have to put some text here to describe for what reasons someone might want to fill out this form.</p>
+        <hr>
+
+        <form id="contact-form" method="POST">
+          <div class="mb-2">
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Your Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Your E-mail Address</label>
+              <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src="img/everything_is_object.png" class="d-block w-100" alt="Everything is Object!">
-          </div>
-          <div class="carousel-item">
-            <img src="img/everything_is_object.png" class="d-block w-100" alt="Everything is Object!">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        </form>
+
+        <hr>
       </div>
 
 
