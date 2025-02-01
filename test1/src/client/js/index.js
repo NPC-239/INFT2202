@@ -150,6 +150,7 @@
 // Get a reference to the movies table body
 // import the movies array from the supplied data file.
 import { movies } from '../data/movies.js';
+console.log('Inserting movies into table:', movies);
 
 const table = document.getElementById('pinnedMoviesTable').getElementsByTagName('tbody')[0];
 
