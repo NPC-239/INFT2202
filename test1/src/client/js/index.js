@@ -1,5 +1,3 @@
-// import the movies array from the supplied data file.
-import { movies } from '../data/movies.js';
 // console.log(movies);
 
 // // write the array to the console, so you can see that they are loading properly
@@ -150,6 +148,9 @@ import { movies } from '../data/movies.js';
 
 // }
 // Get a reference to the movies table body
+// import the movies array from the supplied data file.
+import { movies } from '../data/movies.js';
+
 const table = document.getElementById('pinnedMoviesTable').getElementsByTagName('tbody')[0];
 
 // Filter out dramas and assign IDs correctly
