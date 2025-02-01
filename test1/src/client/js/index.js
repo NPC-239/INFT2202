@@ -62,11 +62,11 @@ function insertMoviesIntoTable(eleTable, movies) {
         const titleCell = document.createElement('td');
         titleCell.textContent = movie.title;
         row.appendChild(titleCell);
+
+        const genreCell = document.createElement('td');
+        genreCell.textContent = movie.genre;
+        row.appendChild(genreCell);
     
-        const ratingCell = document.createElement('td');
-        ratingCell.textContent = movie.rating;
-        row.appendChild(ratingCell);
-        
         const releaseDateCell = document.createElement('td');
         // the datetime is a "unix timestamp", measured in seconds.  
         //   javascript dates are measured in milliseconds.
@@ -74,6 +74,14 @@ function insertMoviesIntoTable(eleTable, movies) {
         // convert this timestamp to a javascript date and print out the date as a normal string in english
         releaseDateCell.textContent = releaseDate.toDateString();
         row.appendChild(releaseDateCell);
+        
+        const directorCell = document.createElement('td');
+        directorCell.textContent = movie.director;
+        row.appendChild(directorCell);
+
+        const ratingCell = document.createElement('td');
+        ratingCell.textContent = movie.rating;
+        row.appendChild(ratingCell);
         
         // create a new button element
         const buttonCell = document.createElement('td');
