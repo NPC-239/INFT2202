@@ -125,4 +125,6 @@ function insertMoviesIntoTable(eleTable, movies) {
         // Append the row to the table
         eleTable.appendChild(row);
     });
+    
+    document.getElementById('moviesTable').classList.remove('d-none');
 }
