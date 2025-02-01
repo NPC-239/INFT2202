@@ -62,7 +62,7 @@ function insertMoviesIntoTable(eleTable, movies) {
         const titleCell = document.createElement('td');
         titleCell.textContent = movie.title;
         row.appendChild(titleCell);
-        
+    
         const ratingCell = document.createElement('td');
         ratingCell.textContent = movie.rating;
         row.appendChild(ratingCell);
@@ -99,6 +99,7 @@ function insertMoviesIntoTable(eleTable, movies) {
                 // it it's not, add it to the list 
             } else {
                 updatedPinnedMovies = [...pinnedMovies, movie];
+                document.getElementById('pinnedMoviesTable').classList.remove('d-none');
             }
             // refresh the page
             localStorage.setItem('pinnedMovies', JSON.stringify(updatedPinnedMovies));
@@ -124,6 +125,7 @@ function insertMoviesIntoTable(eleTable, movies) {
         
         // Append the row to the table
         eleTable.appendChild(row);
+
     });
 
     // trying to get the table to be visible, but it's not working
