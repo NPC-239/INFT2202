@@ -14,15 +14,15 @@ insertMoviesIntoTable(table, movies);
 // log them out so you can see that you have working pins
 // if there are no pinned movies, put a message on the screen that says so
 // but if there are, hide the message
-const pinnedMovies = getPinnedMoviesFromStorage();
-if (pinnedMovies.length === 0) {
-    const noPinnedMessage = document.getElementById('noPinnedMessage');
-    noPinnedMessage.style.display = 'block';
-} else {
-    const noPinnedMessage = document.getElementById('noPinnedMessage');
-    noPinnedMessage.style.display = 'none';
-    insertMoviesIntoTable(table, pinnedMovies);
-}
+// const pinnedMovies = getPinnedMoviesFromStorage();
+// if (pinnedMovies.length === 0) {
+//     const noPinnedMessage = document.getElementById('noPinnedMessage');
+//     noPinnedMessage.style.display = 'block';
+// } else {
+//     const noPinnedMessage = document.getElementById('noPinnedMessage');
+//     noPinnedMessage.style.display = 'none';
+//     insertMoviesIntoTable(table, pinnedMovies);
+// }
 
 /* call insertMoviesIntoTable, 
     give it a reference to the table you want to populate,
