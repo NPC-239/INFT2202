@@ -1,13 +1,13 @@
 // import the movies array from the supplied data file.
-import { movies } from '/Github Repos/INFT2202/test1/src/client/data/movies';
-console.log(movies);
+import { movies } from '../data/movies.js';
+// console.log(movies);
 
 // write the array to the console, so you can see that they are loading properly
 /* call insertMoviesIntoTable, 
     give it a reference to the table you want to populate,
     and the list of movies you want to show in the table */
 // show the table
-const table = document.getElementById('moviesTable').getElementsByTagName('tbody')[0];
+const table = document.getElementById('pinnedMoviesTable').getElementsByTagName('tbody')[0];
 insertMoviesIntoTable(table, movies);
 
 // get a list of `pinnedMovies` from local storage
@@ -70,7 +70,7 @@ function insertMoviesIntoTable(eleTable, movies) {
         const releaseDateCell = document.createElement('td');
         // the datetime is a "unix timestamp", measured in seconds.  
         //   javascript dates are measured in milliseconds.
-        const releaseDate = new Date(movie.releaseDate * 1000);
+        const releaseDate = new Date(movie.release_date * 1000);
         // convert this timestamp to a javascript date and print out the date as a normal string in english
         releaseDateCell.textContent = releaseDate.toDateString();
         row.appendChild(releaseDateCell);
@@ -125,6 +125,7 @@ function insertMoviesIntoTable(eleTable, movies) {
         // Append the row to the table
         eleTable.appendChild(row);
     });
-    
+
+    // trying to get the table to be visible, but it's not working
     document.getElementById('moviesTable').classList.remove('d-none');
 }
