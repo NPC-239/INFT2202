@@ -150,9 +150,10 @@
 // Get a reference to the movies table body
 // import the movies array from the supplied data file.
 import { movies } from '../data/movies.js';
-console.log('Inserting movies into table:', movies);
+console.log('Pinned Movies in Local Storage:', getPinnedMoviesFromStorage());
 
 const table = document.getElementById('pinnedMoviesTable').getElementsByTagName('tbody')[0];
+
 
 // Filter out dramas and assign IDs correctly
 const filteredMovies = movies.filter(movie => movie.genre !== 'Drama');
@@ -171,6 +172,8 @@ function getPinnedMoviesFromStorage() {
 
 // Function to insert movies into a table
 function insertMoviesIntoTable(eleTable, movies) {
+    console.log('Inserting movies into table:', movies);
+
     // Sort movies by rating (highest to lowest)
     movies.sort((a, b) => b.rating - a.rating);
     eleTable.innerHTML = '';
@@ -207,7 +210,7 @@ function insertMoviesIntoTable(eleTable, movies) {
         const pinButton = document.createElement('button');
 
         let pinnedMovies = getPinnedMoviesFromStorage();
-        let isPinned = pinnedMovies.some(pinnedMovie => pinnedMovie.id === movie.id);
+        let isPinned = pinnedMovies.some(pinnedMovie => pinnedMovie.title === movie.title);
 
         // Set button color and icon
         pinButton.style.backgroundColor = isPinned ? 'red' : 'blue';
@@ -240,11 +243,12 @@ function insertMoviesIntoTable(eleTable, movies) {
 
         // Set row color based on rating
         row.style.backgroundColor =
-            movie.rating <= 2 ? 'red' :
-            movie.rating <= 5 ? 'orange' :
-            movie.rating <= 8 ? 'blue' :
-            'green';
-
+        movie.rating <= 2 ? 'red' :
+        movie.rating <= 5 ? 'orange' :
+        movie.rating <= 8 ? 'blue' :
+        'green';
+        row.style.setProperty('background-color', row.style.backgroundColor, 'important');
+        
         // Append row to table
         eleTable.appendChild(row);
     });
