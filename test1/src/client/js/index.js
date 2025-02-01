@@ -1,5 +1,5 @@
 // import the movies array from the supplied data file.
-import { movies } from './movies.js';
+import { movies } from './data/movies.js';
 
 // write the array to the console, so you can see that they are loading properly
 /* call insertMoviesIntoTable, 
