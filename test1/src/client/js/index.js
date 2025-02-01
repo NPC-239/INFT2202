@@ -63,9 +63,10 @@ function insertMoviesIntoTable(eleTable, movies) {
         titleCell.textContent = movie.title;
         row.appendChild(titleCell);
         
-        const ratingCell = document.createElement('td');
-        ratingCell.textContent = movie.rating;
-        row.appendChild(ratingCell);
+        const genreCell = document.createElement('td');
+        genreCell.textContent = movie.genre;
+        row.appendChild(genreCell);
+
         
         const releaseDateCell = document.createElement('td');
         // the datetime is a "unix timestamp", measured in seconds.  
@@ -74,6 +75,14 @@ function insertMoviesIntoTable(eleTable, movies) {
         // convert this timestamp to a javascript date and print out the date as a normal string in english
         releaseDateCell.textContent = releaseDate.toDateString();
         row.appendChild(releaseDateCell);
+
+        const directorCell = document.createElement('td');
+        directprCell.textContent = movie.director;
+        row.appendChild(directorCell);
+
+        const ratingCell = document.createElement('td');
+        ratingCell.textContent = movie.rating;
+        row.appendChild(ratingCell);
         
         // create a new button element
         const buttonCell = document.createElement('td');
@@ -124,6 +133,8 @@ function insertMoviesIntoTable(eleTable, movies) {
         
         // Append the row to the table
         eleTable.appendChild(row);
+        document.getElementById('pinnedMoviesTable').classList.remove('d-none');
+
     });
 
     // trying to get the table to be visible, but it's not working
