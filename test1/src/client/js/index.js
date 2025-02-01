@@ -50,6 +50,10 @@ function insertMoviesIntoTable(eleTable, movies) {
     movies.sort((a, b) => b.rating - a.rating);
     eleTable.innerHTML = '';
     
+    movies.forEach((movie, index) => {
+        movie.id = index;
+    });
+    
     // for each movie
     movies.forEach(movie => {
         // if this movie is a drama, don't add it to the list
