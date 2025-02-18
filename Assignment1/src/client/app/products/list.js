@@ -3,10 +3,10 @@
        Filename: list.js
          Course: INFT 2202
            Date: January 17th, 2025
-    Description: Will show the list of animals
+    Description: Will show the list of products
 */
 
-import animalService from "../animal.service.mock.js";
+import productService from "../product.service.mock.js";
 
 function list(recordPage) {
     const container = document.createElement('div');
@@ -41,7 +41,7 @@ function list(recordPage) {
         pagination.append(ul);
         return pagination;
     }
-    function drawAnimalTable(animals) {
+    function drawproductTable(products) {
         const eleTable = document.createElement('table');
         eleTable.classList.add('table', 'table-striped');
         // Create a <thead> element
@@ -49,20 +49,19 @@ function list(recordPage) {
         // Create a row in the <thead>
         const row = thead.insertRow();
         // Create and append header cells
-        const headers = ['Name', 'Breed', 'Legs', 'Eyes', 'Sound'];
+        const headers = ['Name', 'Stock', 'Price', 'Description'];
         headers.forEach(headerText => {
             const th = document.createElement('th');
             th.textContent = headerText;
             row.appendChild(th);
         });
-        for (let animal of animals) {
+        for (let product of products) {
             const row = eleTable.insertRow();
-            // create some rows for each animal field    
-            row.insertCell().textContent = animal.name;
-            row.insertCell().textContent = animal.breed;
-            row.insertCell().textContent = animal.legs;
-            row.insertCell().textContent = animal.eyes;
-            row.insertCell().textContent = animal.sound;
+            // create some rows for each product field    
+            row.insertCell().textContent = product.name;
+            row.insertCell().textContent = product.stock;
+            row.insertCell().textContent = product.price;
+            row.insertCell().textContent = product.description;
             // create a cell to hold the buttons
             const eleBtnCell = row.insertCell();
             eleBtnCell.classList.add();
@@ -70,27 +69,27 @@ function list(recordPage) {
             const eleBtnDelete = document.createElement('button');
             eleBtnDelete.classList.add('btn', 'btn-danger', 'mx-1');
             eleBtnDelete.innerHTML = `<i class="fa fa-trash"></i>`;
-            eleBtnDelete.addEventListener('click', onDeleteButtonClick(animal));
+            eleBtnDelete.addEventListener('click', onDeleteButtonClick(product));
             // add the delete button to the button cell
             eleBtnCell.append(eleBtnDelete);
             // create an edit button
             const eleBtnEdit = document.createElement('a');
             eleBtnEdit.classList.add('btn', 'btn-primary', 'mx-1');
             eleBtnEdit.innerHTML = `<i class="fa fa-user"></i>`;
-            eleBtnEdit.href = `./animal.html?name=${animal.name}`
+            eleBtnEdit.href = `./product.html?name=${product.name}`
             // add the edit button to the button cell
             eleBtnCell.append(eleBtnEdit);
         }
         return eleTable;
     }
-    function onDeleteButtonClick(animal) {
+    function onDeleteButtonClick(product) {
         return event => {
-            animalService.deleteAnimal(animal.name).then(() => { window.location.reload(); });
+            productService.deleteproduct(product.name).then(() => { window.location.reload(); });
         }
     }
     function createContent() {
         const params = new URLSearchParams(recordPage);
-        const url = new URL(`/api/animals?${params.toString()}`, 'https://inft2202.opentech.durhamcollege.org');
+        const url = new URL(`/api/products?${params.toString()}`, 'https://inft2202.opentech.durhamcollege.org');
         const req = new Request(url, {
             headers: {
                 'User': '100890444',
@@ -112,11 +111,11 @@ function list(recordPage) {
             let header = document.createElement('div');
             header.classList.add('d-flex', 'justify-content-between');
             let h1 = document.createElement('h1');
-            h1.innerHTML = 'Animal List';
+            h1.innerHTML = 'Product List';
             header.append(h1);
             header.append(drawPagination(pagination));
             container.append(header);
-            container.append(drawAnimalTable(records));
+            container.append(drawproductTable(records));
         })
         .catch(err => {
             divWaiting.classList.add('d-none');
