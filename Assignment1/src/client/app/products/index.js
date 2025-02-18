@@ -2,11 +2,11 @@
            Name: Mateo Valles
        Filename: product.service.mock.js
          Course: INFT 2202
-           Date: January 24th, 2025
+           Date: February 17th, 2025
     Description: Contains constructors, prototypes. Previous version of the bug fixed
 */
 
-import productService from "./product.service.mock.js";
+import productService from "../product.service.mock.js";
 
 function Product(name) {
     const form = document.createElement('form');
@@ -88,7 +88,7 @@ function Product(name) {
             eleStocksError.classList.remove('d-none');
             eleStocksError.textContent = "How many stocks does this Product have?";
             valid = false;
-        } else if (isNaN(Stocks)) {
+        } else if (isNaN(stocks)) {
             eleStocksError.classList.remove('d-none');
             eleStocksError.textContent = "This must be a number.";
             valid = false;

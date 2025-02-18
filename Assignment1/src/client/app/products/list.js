@@ -2,7 +2,7 @@
            Name: Mateo Valles
        Filename: list.js
          Course: INFT 2202
-           Date: January 17th, 2025
+           Date: February 17th, 2025
     Description: Will show the list of products
 */
 

@@ -2,8 +2,7 @@
            Name: Mateo Valles
        Filename: product.service.mock.js
          Course: INFT 2202
-           Date: January 17th, 2025
-   Last Updated: January 24th, 2025
+           Date: February 17th, 2025
     Description: Bug fix
 */
 
