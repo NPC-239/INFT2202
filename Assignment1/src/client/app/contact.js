@@ -1,3 +1,11 @@
+/*
+           Name: Mateo Valles
+       Filename: contact.js
+         Course: INFT 2202
+           Date: February 17th, 2025
+    Description: For the contact page
+*/
+
 // make sure storage is set up for messages
 if (!localStorage.getItem('messages')) {
     localStorage.setItem('messages', JSON.stringify([]));
