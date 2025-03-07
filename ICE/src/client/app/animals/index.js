@@ -1,14 +1,14 @@
 /*
            Name: Mateo Valles
-       Filename: animal.service.mock.js
+       Filename: index.js
          Course: INFT 2202
-           Date: January 24th, 2025
-    Description: Contains constructors, prototypes. Previous version of the bug fixed
+           Date: March 7th, 2025
+    Description: Javascript file for index.html
 */
 
-import animalService from "./animal.service.mock.js";
+import animalService from "../animal.service.js";
 
-function animal(name) {
+async function animal(name) {
     const form = document.createElement('form');
     let description = 'Add Animal';
     let animal = null;
@@ -108,7 +108,7 @@ function animal(name) {
         return valid
     }    
     // create a handler to deal with the submit event
-    function submit(action) {
+    async function submit(action) {
         // validate the form
         const valid = validate();
         // do stuff if the form is valid
@@ -129,9 +129,9 @@ function animal(name) {
             const eleNameError = form.name.nextElementSibling
             try {
                 if(action=="new"){
-                    animalService.saveAnimal(animalObject);
+                    await animalService.saveAnimal([animalObject]);
                 } else {
-                    animalService.updateAnimal(animalObject)
+                    await animalService.updateAnimal(animalObject)
                 } 
                 eleNameError.classList.add('d-none');
                 form.reset();
@@ -157,12 +157,22 @@ function animal(name) {
     }
     else{
         description = 'Update Animal';
-        animal = animalService.findAnimal(name);
-        form.addEventListener('submit', function (event) {
-            // prevent the default action from happening
-            event.preventDefault();
-            submit("update");
-        });         
+        try{
+            let ret = await animalService.findAnimal(name);
+            if(ret.length == 0){
+                throw 'No record';
+            }
+            animal = ret[0];
+            form.addEventListener('submit', function (event) {
+                // prevent the default action from happening
+                event.preventDefault();
+                submit("update");
+            });
+        }
+        catch(err){
+//show err on page
+            description = err;
+        }
     }
 
     return {
