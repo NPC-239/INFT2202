@@ -7,6 +7,17 @@
 */
 
 import animalService from "../animal.service.js";
+// import express from "express";
+// const app = express();
+// const port = 3000;
+
+// app.get("/", (req, res) => {
+//     res.send("Hello World!");
+// });
+
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}!`);
+// });
 
 async function animal(name) {
     const form = document.createElement('form');
