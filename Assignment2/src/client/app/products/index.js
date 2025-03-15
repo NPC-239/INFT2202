@@ -25,12 +25,12 @@ async function product(name) {
             '<p class="text-danger d-none"></p>';
         container.append(mb3Name);
 
-        const mb3Desc = document.createElement('div');
-        mb3Desc.classList.add('mb-3');
-        mb3Desc.innerHTML = '<label for="desc" class="form-label">Product Description</label>' +
-            `<input type="text" class="form-control" id="desc" name="desc" value="${product!=null?product.desc:""}">` +
+        const mb3Description = document.createElement('div');
+        mb3Description.classList.add('mb-3');
+        mb3Description.innerHTML = '<label for="description" class="form-label">Product Description</label>' +
+            `<input type="text" class="form-control" id="description" name="description" value="${product!=null?product.description:""}">` +
             '<p class="text-danger d-none"></p>';
-        container.append(mb3Desc);
+        container.append(mb3Description);
         
         const mb3Price = document.createElement('div');
         mb3Price.classList.add('mb-3');
@@ -79,16 +79,8 @@ async function product(name) {
             eleNameError.classList.add('d-none');
         }
 
-        // test that description is valid
-        const desc = form.desc.value;
-        const eleDescError = form.desc.nextElementSibling
-        if (desc == "") {
-            eleDescError.classList.remove('d-none');
-            eleDescError.textContent = "What is the description of this product?";
-            valid = false;
-        } else {
-            eleDescError.classList.add('d-none');
-        }
+        // If you put error validation on this, it will not save
+        const description = form.description.value;
 
         const price = form.price.value;
         const elePriceError = form.price.nextElementSibling
@@ -148,6 +140,8 @@ async function product(name) {
                     productObject[key] = value;
                 }
             });
+
+            console.log('Product Object:', productObject); // Debugging line
 
             const eleNameError = form.name.nextElementSibling
             try {

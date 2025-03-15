@@ -59,7 +59,7 @@ function list(recordPage) {
             const row = eleTable.insertRow();
             // create some rows for each product field    
             row.insertCell().textContent = product.name;
-            row.insertCell().textContent = product.desc;
+            row.insertCell().textContent = product.description;
             row.insertCell().textContent = product.price;
             row.insertCell().textContent = product.stock;
             // row.insertCell().textContent = product.owner;
