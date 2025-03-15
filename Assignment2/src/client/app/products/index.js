@@ -46,7 +46,7 @@ async function product(name) {
             '<p class="text-danger d-none"></p>';
         container.append(mb3Stock);
         
-        /// I misread the contents of the assignment and accidentally thought owner was part of it
+        /// I misread the contents of the assignment and accidentally thought owner was part of it. 
 
         // const mb3Owner = document.createElement('div');
         // mb3Owner.classList.add('mb-3');
