@@ -3,7 +3,7 @@
        Filename: list.js
          Course: INFT 2202
            Date: March 7th, 2025
-    Description: Will show the list of animals
+    Description: Will show the list of products
 */
 
 import productService from "../product.service.js";
@@ -41,7 +41,7 @@ function list(recordPage) {
         pagination.append(ul);
         return pagination;
     }
-    function drawAnimalTable(products) {
+    function drawProductTable(products) {
         const eleTable = document.createElement('table');
         eleTable.classList.add('table', 'table-striped');
         // Create a <thead> element
@@ -62,7 +62,7 @@ function list(recordPage) {
             row.insertCell().textContent = product.description;
             row.insertCell().textContent = product.price;
             row.insertCell().textContent = product.stock;
-            row.insertCell().textContent = product.owner;
+            // row.insertCell().textContent = product.owner;
             // create a cell to hold the buttons
             const eleBtnCell = row.insertCell();
             eleBtnCell.classList.add();
@@ -96,11 +96,11 @@ function list(recordPage) {
                 let header = document.createElement('div');
                 header.classList.add('d-flex', 'justify-content-between');
                 let h1 = document.createElement('h1');
-                h1.innerHTML = 'Animal List';
+                h1.innerHTML = 'Product List';
                 header.append(h1);
                 header.append(drawPagination(pagination));
                 container.append(header);
-                container.append(drawAnimalTable(records));
+                container.append(drawProductTable(records));
             })
             .catch(err => {
                 divWaiting.classList.add('d-none');

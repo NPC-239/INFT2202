@@ -2,54 +2,52 @@
            Name: Mateo Valles
        Filename: create.js
          Course: INFT 2202
-           Date: January 10th, 2025
-   Last Updated: January 17th, 2025
-    Description: TBD
+           Date: March 14th, 2025
+    Description: Javascript for creating a product
 */
 
 // tell us what page we're on
 console.log('we are on the add page');
 
 // assign a handler to the submit event
-document.getElementById('animal-form')
-    .addEventListener('submit', submitAnimalForm);
-
+document.getElementById('product-form')
+    .addEventListener('submit', submitProductForm);
 // create a handler to deal with the submit event
-async function submitAnimalForm ( event ) {
+async function submitProductForm ( event ) {
     // prevent the default action from happening
     event.preventDefault();
     // get a reference to the form (from the event)
-    const animalForm = event.target;  
+    const productForm = event.target;  
     // validate the form
-    const valid = validateAnimalForm(animalForm);
+    const valid = validateProductForm(productForm);
     // do stuff if the form is valid
     if (valid) {
         console.log('were good');
         
-        const formData = new FormData(animalForm);
+        const formData = new FormData(productForm);
         //create a javascript object to hold the form data
-        const animalObject = {};
+        const productObject = {};
         formData.forEach((value, key) => {
             //by default, a value from form is string
             //we need to convert them accordingly
-            if(key === 'eyes' || key ==='legs'){
-                animalObject[key] = Number(value);
+            if(key === 'price' || key ==='stock'){
+                productObject[key] = Number(value);
             }
             else{
-                animalObject[key] = value;
+                productObject[key] = value;
             }
         });
 
-        const eleNameError = animalForm.name.nextElementSibling
+        const eleNameError = productForm.name.nextElementSibling
         try {
-            await animalService.saveAnimal(animalObject)
+            await productService.saveProduct(productObject)
             eleNameError.classList.add('d-none');
-            animalForm.reset();
+            productForm.reset();
             window.location = './list.html';
         } catch (error) {
             console.log(error);
             eleNameError.classList.remove('d-none');
-            eleNameError.textContent = "This animal already exists!";
+            eleNameError.textContent = "This product already exists!";
         }        
     // do nothing if it's not
     } else {
@@ -57,8 +55,8 @@ async function submitAnimalForm ( event ) {
     }
 }
 
-// validate the animal form
-function validateAnimalForm ( form ) {
+// validate the product form
+function validateProductForm ( form ) {
     console.log('validating')
     let valid = true;
     // test that name is valid
@@ -66,7 +64,7 @@ function validateAnimalForm ( form ) {
     const eleNameError = form.name.nextElementSibling
     if (name == "") {
         eleNameError.classList.remove('d-none');
-        eleNameError.textContent = "You must name this animal!";
+        eleNameError.textContent = "You must name this product!";
         valid = false;
     } else {
         eleNameError.classList.add('d-none');

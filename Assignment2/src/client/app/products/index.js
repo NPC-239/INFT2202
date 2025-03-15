@@ -20,7 +20,7 @@ async function product(name) {
         mb3Name.classList.add('mb-3');
         let editableInput = `<input type="text" class="form-control" id="name" name="name">`;
         let readonlyInput = `<input type="text" class="form-control" id="name" name="name" value="${product!=null?product.name:""}" readonly>`;
-        mb3Name.innerHTML = '<label for="name" class="form-label">Animal Name</label>' +
+        mb3Name.innerHTML = '<label for="name" class="form-label">Product Name</label>' +
             (product!=null ? readonlyInput : editableInput) +
             '<p class="text-danger d-none"></p>';
         container.append(mb3Name);
@@ -46,12 +46,14 @@ async function product(name) {
             '<p class="text-danger d-none"></p>';
         container.append(mb3Stock);
         
-        const mb3Owner = document.createElement('div');
-        mb3Owner.classList.add('mb-3');
-        mb3Owner.innerHTML = '<label for="owner" class="form-label">Owner Name</label>' +
-            '<input type="text" class="form-control" id="owner" name="owner">' +
-            '<p class="text-danger d-none"></p>';
-        container.append(mb3Owner);        
+        /// I misread the contents of the assignment and accidentally thought owner was part of it
+
+        // const mb3Owner = document.createElement('div');
+        // mb3Owner.classList.add('mb-3');
+        // mb3Owner.innerHTML = '<label for="owner" class="form-label">Owner Name</label>' +
+        //     '<input type="text" class="form-control" id="owner" name="owner">' +
+        //     '<p class="text-danger d-none"></p>';
+        // container.append(mb3Owner);        
 
         const submitBtn = document.createElement('div');
         submitBtn.innerHTML = '<button type="submit" class="btn btn-primary">' +
@@ -116,15 +118,15 @@ async function product(name) {
             eleStockError.classList.add('d-none');
         }        
 
-        const owner = form.owner.value;
-        const eleOwnerError = form.owner.nextElementSibling
-        if (owner == "") {
-            eleOwnerError.classList.remove('d-none');
-            eleOwnerError.textContent = "Who is the owner of this product?";
-            valid = false;
-        } else {
-            eleOwnerError.classList.add('d-none');
-        }
+        // const owner = form.owner.value;
+        // const eleOwnerError = form.owner.nextElementSibling
+        // if (owner == "") {
+        //     eleOwnerError.classList.remove('d-none');
+        //     eleOwnerError.textContent = "Who is the owner of this product?";
+        //     valid = false;
+        // } else {
+        //     eleOwnerError.classList.add('d-none');
+        // }
 
         return valid
     }    

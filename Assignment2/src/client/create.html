@@ -21,45 +21,40 @@
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="create.html" class="nav-link active" aria-current="page">Add Animal</a></li>
-        <li class="nav-item"><a href="list.html" class="nav-link">Show Animals</a></li>
+        <li class="nav-item"><a href="create.html" class="nav-link active" aria-current="page">Add Product</a></li>
+        <li class="nav-item"><a href="list.html" class="nav-link">Show Products</a></li>
         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
       </ul>
     </header>
     <main class="flex-shrink-0">
         <div class="container">
-          <h1>Add Animal</h1>
+          <h1>Add Product</h1>
           <hr>
-          <form id="animal-form" method="POST">
+          <form id="product-form" method="POST">
             <div class="mb-2">
               <div class="mb-3">
-                <label for="name" class="form-label">Animal Name</label>
+                <label for="name" class="form-label">Product Name</label>
                 <input type="text" class="form-control" id="name" name="name">
                 <p class="text-danger d-none">currently hidden</p>
               </div>
               <div class="mb-3">
-                <label for="breed" class="form-label">Animal Breed</label>
-                <input type="text" class="form-control" id="breed" name="breed">
+                <label for="desc" class="form-label">Product Description</label>
+                <input type="text" class="form-control" id="desc" name="desc">
                 <p class="text-danger d-none"></p>
               </div>              
               <div class="mb-3">
-                <label for="legs" class="form-label">Number of Legs</label>
-                <input type="text" class="form-control" id="legs" name="legs">
+                <label for="price" class="form-label">Price Number</label>
+                <input type="text" class="form-control" id="price" name="price">
                 <p class="text-danger d-none"></p>
               </div>
               <div class="mb-3">
-                <label for="eyes" class="form-label">Number of Eyes</label>
-                <input type="text" class="form-control" id="eyes" name="eyes">
+                <label for="stock" class="form-label">Number of Stock</label>
+                <input type="text" class="form-control" id="stock" name="stock">
                 <p class="text-danger d-none"></p>
               </div>
-              <div class="mb-3">
-                <label for="sound" class="form-label">Sound this animal makes</label>
-                <input type="text" class="form-control" id="sound" name="sound">
-                <p class="text-danger d-none"></p>
-              </div>  
               <div>
-                <button type="submit" class="btn btn-primary">Save Animal</button>
+                <button type="submit" class="btn btn-primary">Save Product</button>
               </div>
             </div>
           </form>  

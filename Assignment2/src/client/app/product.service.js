@@ -57,7 +57,7 @@ ProductService.prototype.getProductPage = async function({ page = 1, perPage = 8
 /*
  *
  */
-AnimalService.prototype.saveProduct = async function(products) 
+ProductService.prototype.saveProduct = async function(products) 
 {
     const url = new URL(`/api/products`, this.host);
     const req = new Request(url, {
