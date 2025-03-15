@@ -103,6 +103,18 @@ async function animal(name) {
         }
 
         const eyes = form.eyes.value; // check that these are numbers
+        const eleEyesError = form.eyes.nextElementSibling
+        if (eyes == "") {
+            eleEyesError.classList.remove('d-none');
+            eleEyesError.textContent = "How many eyes does this animal have?";
+            valid = false;
+        } else if (isNaN(eyes)) {
+            eleEyesError.classList.remove('d-none');
+            eleEyesError.textContent = "This must be a number.";
+            valid = false;
+        } else {
+            eleEyesError.classList.add('d-none');
+        }
         const sound = form.sound.value;
         // return if the form is valid or not
         return valid
