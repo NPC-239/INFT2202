@@ -6,7 +6,7 @@
     Description: Will show the list of animals
 */
 
-import animalService from "../animal.service.js";
+import productService from "../product.service.js";
 
 function list(recordPage) {
     const container = document.createElement('div');
@@ -41,7 +41,7 @@ function list(recordPage) {
         pagination.append(ul);
         return pagination;
     }
-    function drawAnimalTable(animals) {
+    function drawAnimalTable(products) {
         const eleTable = document.createElement('table');
         eleTable.classList.add('table', 'table-striped');
         // Create a <thead> element
@@ -49,20 +49,20 @@ function list(recordPage) {
         // Create a row in the <thead>
         const row = thead.insertRow();
         // Create and append header cells
-        const headers = ['Name', 'Breed', 'Legs', 'Eyes', 'Sound'];
+        const headers = ['Name', 'Description', 'Price', 'Stock', 'Owner'];
         headers.forEach(headerText => {
             const th = document.createElement('th');
             th.textContent = headerText;
             row.appendChild(th);
         });
-        for (let animal of animals) {
+        for (let product of products) {
             const row = eleTable.insertRow();
-            // create some rows for each animal field    
-            row.insertCell().textContent = animal.name;
-            row.insertCell().textContent = animal.breed;
-            row.insertCell().textContent = animal.legs;
-            row.insertCell().textContent = animal.eyes;
-            row.insertCell().textContent = animal.sound;
+            // create some rows for each product field    
+            row.insertCell().textContent = product.name;
+            row.insertCell().textContent = product.description;
+            row.insertCell().textContent = product.price;
+            row.insertCell().textContent = product.stock;
+            row.insertCell().textContent = product.owner;
             // create a cell to hold the buttons
             const eleBtnCell = row.insertCell();
             eleBtnCell.classList.add();
@@ -70,26 +70,26 @@ function list(recordPage) {
             const eleBtnDelete = document.createElement('button');
             eleBtnDelete.classList.add('btn', 'btn-danger', 'mx-1');
             eleBtnDelete.innerHTML = `<i class="fa fa-trash"></i>`;
-            eleBtnDelete.addEventListener('click', onDeleteButtonClick(animal));
+            eleBtnDelete.addEventListener('click', onDeleteButtonClick(product));
             // add the delete button to the button cell
             eleBtnCell.append(eleBtnDelete);
             // create an edit button
             const eleBtnEdit = document.createElement('a');
             eleBtnEdit.classList.add('btn', 'btn-primary', 'mx-1');
             eleBtnEdit.innerHTML = `<i class="fa fa-user"></i>`;
-            eleBtnEdit.href = `./animal.html?name=${animal.name}`
+            eleBtnEdit.href = `./product.html?name=${product.name}`
             // add the edit button to the button cell
             eleBtnCell.append(eleBtnEdit);
         }
         return eleTable;
     }
-    function onDeleteButtonClick(animal) {
+    function onDeleteButtonClick(product) {
         return event => {
-            animalService.deleteAnimal(animal.name).then(() => { window.location.reload(); });
+            productService.deleteProduct(product.name).then(() => { window.location.reload(); });
         }
     }
     function createContent() {
-        animalService.getAnimalPage(recordPage)
+        productService.getProductPage(recordPage)
             .then((ret) => {
                 let { records, pagination } = ret;
                 divWaiting.classList.add('d-none');

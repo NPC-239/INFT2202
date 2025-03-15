@@ -6,56 +6,56 @@
     Description: Javascript file for index.html
 */
 
-import animalService from "../animal.service.js";
+import productService from "../product.service.js";
 
-async function animal(name) {
+async function product(name) {
     const form = document.createElement('form');
-    let description = 'Add Animal';
-    let animal = null;
+    let description = 'Add Product';
+    let product = null;
     function createContent() {
         const container = document.createElement('div');
         container.classList.add('mb-2');
-        //create animal form content
+        //create product form content
         const mb3Name = document.createElement('div');
         mb3Name.classList.add('mb-3');
         let editableInput = `<input type="text" class="form-control" id="name" name="name">`;
-        let readonlyInput = `<input type="text" class="form-control" id="name" name="name" value="${animal!=null?animal.name:""}" readonly>`;
+        let readonlyInput = `<input type="text" class="form-control" id="name" name="name" value="${product!=null?product.name:""}" readonly>`;
         mb3Name.innerHTML = '<label for="name" class="form-label">Animal Name</label>' +
-            (animal!=null ? readonlyInput : editableInput) +
+            (product!=null ? readonlyInput : editableInput) +
             '<p class="text-danger d-none"></p>';
         container.append(mb3Name);
 
-        const mb3Breed = document.createElement('div');
-        mb3Breed.classList.add('mb-3');
-        mb3Breed.innerHTML = '<label for="breed" class="form-label">Animal Breed</label>' +
-            `<input type="text" class="form-control" id="breed" name="breed" value="${animal!=null?animal.breed:""}">` +
+        const mb3Desc = document.createElement('div');
+        mb3Desc.classList.add('mb-3');
+        mb3Desc.innerHTML = '<label for="desc" class="form-label">Product Description</label>' +
+            `<input type="text" class="form-control" id="desc" name="desc" value="${product!=null?product.desc:""}">` +
             '<p class="text-danger d-none"></p>';
-        container.append(mb3Breed);
+        container.append(mb3Desc);
         
-        const mb3Leg = document.createElement('div');
-        mb3Leg.classList.add('mb-3');
-        mb3Leg.innerHTML = '<label for="legs" class="form-label">Number of Legs</label>' +
-            '<input type="text" class="form-control" id="legs" name="legs">' +
+        const mb3Price = document.createElement('div');
+        mb3Price.classList.add('mb-3');
+        mb3Price.innerHTML = '<label for="price" class="form-label">Price Value</label>' +
+            '<input type="text" class="form-control" id="price" name="price">' +
             '<p class="text-danger d-none"></p>';
-        container.append(mb3Leg);
+        container.append(mb3Price);
         
-        const mb3Eye = document.createElement('div');
-        mb3Eye.classList.add('mb-3');
-        mb3Eye.innerHTML = '<label for="eyes" class="form-label">Number of Eyes</label>' +
-            '<input type="text" class="form-control" id="eyes" name="eyes">' +
+        const mb3Stock = document.createElement('div');
+        mb3Stock.classList.add('mb-3');
+        mb3Stock.innerHTML = '<label for="stock" class="form-label">Number in Stock</label>' +
+            '<input type="text" class="form-control" id="stock" name="stock">' +
             '<p class="text-danger d-none"></p>';
-        container.append(mb3Eye);
+        container.append(mb3Stock);
         
-        const mb3Sound = document.createElement('div');
-        mb3Sound.classList.add('mb-3');
-        mb3Sound.innerHTML = '<label for="sound" class="form-label">Sound this animal makes</label>' +
-            '<input type="text" class="form-control" id="sound" name="sound">' +
+        const mb3Owner = document.createElement('div');
+        mb3Owner.classList.add('mb-3');
+        mb3Owner.innerHTML = '<label for="owner" class="form-label">Owner Name</label>' +
+            '<input type="text" class="form-control" id="owner" name="owner">' +
             '<p class="text-danger d-none"></p>';
-        container.append(mb3Sound);        
+        container.append(mb3Owner);        
 
         const submitBtn = document.createElement('div');
         submitBtn.innerHTML = '<button type="submit" class="btn btn-primary">' +
-            'Save Animal <i class="fa-solid fa-check"></i>' +
+            'Save Product <i class="fa-solid fa-check"></i>' +
             '</button>';
         container.append(submitBtn);        
         ///
@@ -71,40 +71,61 @@ async function animal(name) {
 
         if (name == "") {
             eleNameError.classList.remove('d-none');
-            eleNameError.textContent = "You must name this animal!";
+            eleNameError.textContent = "You must name this product!";
             valid = false;
         } else {
             eleNameError.classList.add('d-none');
         }
 
-        // test that breed is valid
-        const breed = form.breed.value;
-        const eleBreedError = form.breed.nextElementSibling
-        if (breed == "") {
-            eleBreedError.classList.remove('d-none');
-            eleBreedError.textContent = "What type of animal is this?";
+        // test that description is valid
+        const desc = form.desc.value;
+        const eleDescError = form.desc.nextElementSibling
+        if (desc == "") {
+            eleDescError.classList.remove('d-none');
+            eleDescError.textContent = "What is the description of this product?";
             valid = false;
         } else {
-            eleBreedError.classList.add('d-none');
+            eleDescError.classList.add('d-none');
         }
 
-        const legs = form.legs.value;
-        const eleLegsError = form.legs.nextElementSibling
-        if (legs == "") {
-            eleLegsError.classList.remove('d-none');
-            eleLegsError.textContent = "How many legs does this animal have?";
+        const price = form.price.value;
+        const elePriceError = form.price.nextElementSibling
+        if (price == "") {
+            elePriceError.classList.remove('d-none');
+            elePriceError.textContent = "What is the price of the product?";
             valid = false;
-        } else if (isNaN(legs)) {
-            eleLegsError.classList.remove('d-none');
-            eleLegsError.textContent = "This must be a number.";
+        } else if (isNaN(price)) {
+            elePriceError.classList.remove('d-none');
+            elePriceError.textContent = "This must be a number.";
             valid = false;
         } else {
-            eleLegsError.classList.add('d-none');
+            elePriceError.classList.add('d-none');
         }
 
-        const eyes = form.eyes.value; // check that these are numbers
-        const sound = form.sound.value;
-        // return if the form is valid or not
+        const stock = form.stock.value;
+        const eleStockError = form.stock.nextElementSibling
+        if (price == "") {
+            eleStockError.classList.remove('d-none');
+            eleStockError.textContent = "What is the stock of the product?";
+            valid = false;
+        } else if (isNaN(stock)) {
+            eleStockError.classList.remove('d-none');
+            eleStockError.textContent = "This must be a number.";
+            valid = false;
+        } else {
+            eleStockError.classList.add('d-none');
+        }        
+
+        const owner = form.owner.value;
+        const eleOwnerError = form.owner.nextElementSibling
+        if (owner == "") {
+            eleOwnerError.classList.remove('d-none');
+            eleOwnerError.textContent = "Who is the owner of this product?";
+            valid = false;
+        } else {
+            eleOwnerError.classList.add('d-none');
+        }
+
         return valid
     }    
     // create a handler to deal with the submit event
@@ -116,22 +137,22 @@ async function animal(name) {
             console.log('were good');
 
             const formData = new FormData(form);
-            const animalObject = {};
+            const productObject = {};
             formData.forEach((value, key) => {
-                if (key === 'eyes' || key === 'legs') {
-                    animalObject[key] = Number(value);
+                if (key === 'price' || key === 'stock') {
+                    productObject[key] = Number(value);
                 }
                 else {
-                    animalObject[key] = value;
+                    productObject[key] = value;
                 }
             });
 
             const eleNameError = form.name.nextElementSibling
             try {
                 if(action=="new"){
-                    await animalService.saveAnimal([animalObject]);
+                    await productService.saveProduct([productObject]);
                 } else {
-                    await animalService.updateAnimal(animalObject)
+                    await productService.updateProduct(productObject)
                 } 
                 eleNameError.classList.add('d-none');
                 form.reset();
@@ -139,11 +160,11 @@ async function animal(name) {
             } catch (error) {
                 console.log(error);
                 eleNameError.classList.remove('d-none');
-                eleNameError.textContent = "This animal already exists!";
+                eleNameError.textContent = "This product already exists!";
             }
             // do nothing if it's not
         } else {
-            console.log('were not good');
+            console.log('we aren\'t good');
         }
     }
     
@@ -156,13 +177,13 @@ async function animal(name) {
         });
     }
     else{
-        description = 'Update Animal';
+        description = 'Update Product';
         try{
-            let ret = await animalService.findAnimal(name);
+            let ret = await productService.findProduct(name);
             if(ret.length == 0){
                 throw 'No record';
             }
-            animal = ret[0];
+            product = ret[0];
             form.addEventListener('submit', function (event) {
                 // prevent the default action from happening
                 event.preventDefault();
@@ -181,4 +202,4 @@ async function animal(name) {
     }
 }
 
-export default animal;
+export default product;
