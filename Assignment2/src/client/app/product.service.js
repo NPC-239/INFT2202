@@ -5,7 +5,8 @@
 export default new ProductService({
     host: 'https://inft2202-server.onrender.com/api/products',
     //host: 'http://localhost:3091',
-    user: '100890444'
+    user: '100890444',
+    apikey: 'e05d3bc2-55b0-4622-9fe1-ce3499ec4dee'
 });
 
 /*
