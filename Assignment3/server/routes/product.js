@@ -1,5 +1,5 @@
 import express from 'express';
-import animal from "../controllers/animal.js";
+import animal from "../controllers/product.js";
 import { checkValidation } from '../middleWare/validation.js';
 
 const router = express.Router();

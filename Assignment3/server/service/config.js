@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser';
-import animalRouter from '../routes/animal.js'
+import animalRouter from '../routes/product.js'
 import { loggingMiddleware } from '../middleWare/logging.js';
 import {errorHandler} from '../middleWare/errorHandler.js';
 import { query,validationResult } from 'express-validator';
