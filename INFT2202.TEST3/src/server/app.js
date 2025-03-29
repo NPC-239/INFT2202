@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import movies from './data/movies.json' assert { type: 'json' };
+import movies from './data/movies.js';
 
 // Resolve __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 
 // Automatically serve static assets from the client folder
-app.use(express.static(path.join(__dirname, '../../client')));
+app.use(express.static(path.join(__dirname, '../../src/client')));
 
 // Automatically serve static assets from the node_modules folder
 app.use('/node_modules', express.static(path.join(__dirname, '../../../node_modules')));
@@ -27,6 +27,8 @@ const router = express.Router();
 
 // Create a new route and route handler
 router.get('/api/movies', (req, res) => {
+    console.log("Original movies data:", movies); // Log the movies array
+
     const { rating, genre } = req.query;
     let filteredMovies = movies;
 

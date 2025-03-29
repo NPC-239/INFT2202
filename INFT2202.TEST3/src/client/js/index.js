@@ -11,7 +11,7 @@
  */
 async function fetchMovies(genre = null, rating = null) {
     try {
-        const url = new URL('http://localhost:3000/api/movies');
+        const url = new URL('http://localhost:3022/api/movies');
         const params = new URLSearchParams();
 
         if (genre) params.append('genre', genre);
@@ -63,9 +63,6 @@ function insertMoviesIntoTable(table, movies) {
         const genreCell = row.insertCell();
         genreCell.textContent = movie.genre;
 
-        const ratingCell = row.insertCell();
-        ratingCell.textContent = movie.rating;
-
         // the datetime is a "unix timestamp", measured in seconds.  
         // javascript dates are measured in milliseconds.
         // convert this timestamp to a javascript date and print out the date as a normal string
@@ -73,6 +70,12 @@ function insertMoviesIntoTable(table, movies) {
         const date = new Date(movie.datetime * 1000);
         dateCell.textContent = date.toLocaleString();
 
+        const directorCell = row.insertCell();
+        directorCell.textContent = movie.director;
+
+        const ratingCell = row.insertCell();
+        ratingCell.textContent = movie.rating;
+        
         // Apply row color based on rating
         if (movie.rating <= 2) {
             // if a movie is rated two or below, make this row red
