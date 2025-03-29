@@ -1,6 +1,11 @@
-// Import the express library
 import express from 'express';
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import movies from './data/movies.json' assert { type: 'json' };
+
+// Resolve __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Set the port for the server, use 3022
 const port = 3022;
@@ -20,11 +25,8 @@ app.use('/node_modules', express.static(path.join(__dirname, '../../../node_modu
 // Create a new router instance
 const router = express.Router();
 
-// Create a new route and route handler, check the README for more details
+// Create a new route and route handler
 router.get('/api/movies', (req, res) => {
-    // Import the datafile
-    const movies = require('./data/movies.json');
-
     const { rating, genre } = req.query;
     let filteredMovies = movies;
 
@@ -51,7 +53,12 @@ router.get('/api/movies', (req, res) => {
 });
 
 // Configure the server to use your new router instance
-app.use(router);
+app.use('/api', router);
+
+// Fallback route to serve `index.html` for all other requests
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/index.html'));
+});
 
 // Start the server
 app.listen(port, () => {
