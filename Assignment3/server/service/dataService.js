@@ -3,7 +3,7 @@ import { MongoClient } from 'mongodb';
 function dataService(collectionName) {
     const localUri = "mongodb://localhost:27017/";
     const client = new MongoClient(localUri, { useNewUrlParser: true, useUnifiedTopology: true });
-    const projection = { _id: 0, name: 1, breed: 1, legs: 1, eyes: 1, sound: 1, user:1,createTime:1,updateTime:1};
+    const projection = { _id: 0, name: 1, description: 1, price: 1, stock: 1, user:1,createTime:1,updateTime:1};
     return {
         delete: async (name = null) => {
             try {

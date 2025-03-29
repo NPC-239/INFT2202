@@ -1,4 +1,4 @@
-import animalData from '../data/animal.js'
+import animalData from '../data/product.js'
 
 function dataService(collectionName) {
     return {
@@ -17,12 +17,12 @@ function dataService(collectionName) {
                         let pagination = {
                             page: page,
                             perPage: perPage,
-                            pages: Math.ceil(animalData.length / perPage)
+                            pages: Math.ceil(productData.length / perPage)
                         }
                         let start = (pagination.page - 1) * perPage;
                         let end = start + perPage;
                         resolve({
-                            records: animalData.slice(start, end),
+                            records: productData.slice(start, end),
                             pagination
                         });
                     }, 500);

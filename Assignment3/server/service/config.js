@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser';
-import animalRouter from '../routes/product.js'
+import productRouter from '../routes/product.js'
 import { loggingMiddleware } from '../middleWare/logging.js';
 import {errorHandler} from '../middleWare/errorHandler.js';
 import { query,validationResult } from 'express-validator';
@@ -21,7 +21,7 @@ function config(app) {
         res.send({ errors: result.array() })
     }); 
         
-    app.use('/api/animals', animalRouter);
+    app.use('/api/products', productRouter);
 
 // Error handler middleware (should be the last middleware)
     app.use(errorHandler);      

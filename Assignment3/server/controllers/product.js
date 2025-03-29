@@ -2,8 +2,8 @@
 import dataService from '../service/dataService.js';
 import { checkSchema } from 'express-validator';
 
-const animalService = dataService('animal');
-const animal = {
+const productService = dataService('product');
+const product = {
     rules: [checkSchema({
         page: {
             //isNumeric: true,
@@ -34,9 +34,9 @@ const animal = {
             let ret;
             const user = _.headers['user'];
             if (_.params.name) {
-                ret = await animalService.query(_.params.name);
+                ret = await productService.query(_.params.name);
             } else {
-                ret = await animalService.load(_.query);
+                ret = await productService.load(_.query);
             }
             res.json(ret);
         }
@@ -49,7 +49,7 @@ const animal = {
             const user = _.headers['user'];
             const userData = _.body.map(item => { return { _id: item.name, ...item, user, createTime: Math.floor(Date.now() / 1000), updateTime: null } });
 
-            let ret = await animalService.add(userData);
+            let ret = await productService.add(userData);
             res.status(201).send({ message: ret });
         }
         catch (err) {
@@ -61,7 +61,7 @@ const animal = {
             const userData = _.body;
             delete userData.createTime;
             userData.updateTime = Math.floor(Date.now() / 1000);
-            let ret = await animalService.update(userData);
+            let ret = await productService.update(userData);
             res.status(200).send({ message: ret });
         }
         catch (err) {
@@ -72,7 +72,7 @@ const animal = {
         try {
             const user = _.headers['user'];
             if (_.params.name) {
-                let ret = await animalService.delete(_.params.name);
+                let ret = await productService.delete(_.params.name);
                 res.status(200).send({ message: ret });
             } else {
                 res.status(406).send('Not Accepted');
@@ -84,4 +84,4 @@ const animal = {
     }
 };
 
-export default animal;
+export default product;

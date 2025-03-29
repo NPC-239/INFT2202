@@ -1,11 +1,11 @@
 import express from 'express';
-import animal from "../controllers/product.js";
+import product from "../controllers/product.js";
 import { checkValidation } from '../middleWare/validation.js';
 
 const router = express.Router();
-router.get('/:name?', checkValidation(animal.rules), animal.index);
-router.post('/', checkValidation(animal.rules), animal.add);
-router.delete('/:name?', animal.delete);
-router.put('/', checkValidation(animal.rules), animal.update);
+router.get('/:name?', checkValidation(product.rules), product.index);
+router.post('/', checkValidation(product.rules), product.add);
+router.delete('/:name?', product.delete);
+router.put('/', checkValidation(product.rules), product.update);
 
 export default router;

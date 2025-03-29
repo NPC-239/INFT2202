@@ -1,184 +1,32 @@
 export default [
-    {
-      "name": "Gorge",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 4,
-      "sound": "Moo"
-    },
-    {
-      "name": "Borgo",
-      "breed": "Rizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "What's up witchu"
-    },
-    {
-      "name": "Drip King",
-      "breed": "Drizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "All this ice on me"
-    },
-    {
-      "name": "name 2",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 3",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 4",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 5",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 6",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 7",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 8",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 9",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 10",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 11",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 12",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 13",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 14",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 15",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 16",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 17",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 18",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 19",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 20",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 21",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 22",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 23",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    },
-    {
-      "name": "name 24",
-      "breed": "Grizzly Bear",
-      "legs": 4,
-      "eyes": 2,
-      "sound": "Moo"
-    }
-  ];
+  {
+    "name": "Deluxe Granola Bar",
+    "description": "A delicious granola bar with nuts and honey",
+    "price": 2.99,
+    "stock": 51
+  },
+  {
+    "name": "Heavy Blanket",
+    "description": "A warm and cozy blanket for cold nights",
+    "price": 25.49,
+    "stock": 4
+  },
+  {
+    "name": "Chew 5 Gum",
+    "description": "A refreshing minty gum",
+    "price": 1.99,
+    "stock": 75
+  },
+  {
+    "name": "Awesome Sauce",
+    "description": "A spicy and tangy sauce for all your meals",
+    "price": 3.99,
+    "stock": 20
+  },
+  {
+    "name": "Chcocolate Bar",
+    "description": "A rich and creamy chocolate bar",
+    "price": 1.49,
+    "stock": 70
+  }
+];
